@@ -10,8 +10,15 @@ def read_csv(file_name):
     return df
 
 
+def convert_date_to_month(df):
+    df = df.copy()
+    df['month'] = df['date'].apply(lambda x: x.split('-')[1])
+    return df
+
+
 def main(file_name):
     df = read_csv(file_name)
+    df = convert_date_to_month(df)
     print(df)
 
 
