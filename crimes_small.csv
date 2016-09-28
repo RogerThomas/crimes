@@ -1,0 +1,9 @@
+GO Primary Key,Council District,GO Highest Offense Desc,Highest NIBRS/UCR Offense Description,GO Report Date,GO Location,Clearance Status,Clearance Date,GO District,GO Location Zip,GO Census Tract,GO X Coordinate,GO Y Coordinate
+201510756,7,BURGLARY NON RESIDENCE        ,Burglary,1-Jan-15,2500 W PARMER LN                                                                                    ,N,16-Jan-15,A,78727,18.48,3125825,10127011
+201511737,3,AUTO THEFT                    ,Auto Theft,1-Jan-15,3400 S IH 35 SVRD SB                                                                                ,O,24-May-15,D,78704,23.08,3113220,10054718
+20155000099,5,BURGLARY OF VEHICLE           ,Theft,1-Jan-15,3218 SILK OAK DR                                                                                    ,N,8-Jan-15,F,78748,17.46,3083887,10040667
+201511111,1,THEFT                         ,Theft,1-Jan-15,6201 E US 290 HWY EB                                                                                ,N,10-Jan-15,I,78723,21.05,3126486,10090455
+201520186,3,BURGLARY OF RESIDENCE         ,Burglary,2-Jan-15,4700 E RIVERSIDE DR                                                                                 ,N,14-Jan-15,H,78741,23.18,3122189,10058144
+201520313,1,AUTO THEFT                    ,Auto Theft,2-Jan-15,6816 WILLAMETTE DR                                                                                  ,N,23-May-15,I,78723,21.13,3135609,10088927
+201520454,4,AUTO THEFT                    ,Auto Theft,2-Jan-15,10707 BARNHILL DR                                                                                   ,C,4-Jan-15,E,78758,18.22,3128004,10111713
+201520492,9,AGG ASSAULT                   ,Agg Assault,2-Feb-15,4110 GUADALUPE ST                                                                                   ,O,6-Jan-15,B,78751,2.03,3116331,10085202
