@@ -40,7 +40,7 @@ def main(file_name):
     df = read_csv(file_name)
     df = convert_date_to_month(df)
     df = get_monthly_demand_index_by_district(df)
-    print(df)
+    return df
 
 
 if __name__ == "__main__":
