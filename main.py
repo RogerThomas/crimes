@@ -12,7 +12,8 @@ def read_csv(file_name):
 
 def convert_date_to_month(df):
     df = df.copy()
-    df['month'] = df['date'].apply(lambda x: x.split('-')[1])
+    df['date'] = pd.to_datetime(df['date'], format="%d-%b-%y")
+    df['month'] = df['date'].dt.month
     return df
 
 
@@ -36,12 +37,18 @@ def get_monthly_demand_index_by_district(df):
     return df
 
 
+def convert_month_to_string(df):
+    df['month'] = pd.to_datetime(df['month'], format='%m').dt.strftime('%b')
+    return df
+
+
 def main(file_name):
     df = read_csv(file_name)
     df = convert_date_to_month(df)
     df = get_monthly_demand_index_by_district(df)
+    df = convert_month_to_string(df)
     return df
 
 
 if __name__ == "__main__":
-    main('crimes_small.csv')
+    print(main('crimes.csv'))
