@@ -16,6 +16,11 @@ def convert_date_to_month(df):
     return df
 
 
+def get_monthly_counts(df):
+    df = df.groupby(['month'], as_index=False)['count'].sum()
+    return df
+
+
 def get_monthly_counts_by_district(df):
     df = df.groupby(['month', 'district'], as_index=False)['count'].sum()
     return df
@@ -24,8 +29,9 @@ def get_monthly_counts_by_district(df):
 def main(file_name):
     df = read_csv(file_name)
     df = convert_date_to_month(df)
+    monthly_counts = get_monthly_counts(df)
     df = get_monthly_counts_by_district(df)
-    print(df)
+    print(monthly_counts)
 
 
 if __name__ == "__main__":
