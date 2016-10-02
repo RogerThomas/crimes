@@ -45,13 +45,21 @@ def get_monthly_demand_index_by_district(df):
     return df
 
 
+def sort_df_by_month_demand_index_and_district(df):
+    df = df.sort_values(["month", "demand_index", "district"], ascending=False)
+    df = df.reset_index(drop=True)
+    return df
+
+
 def main(file_name):
     df = read_csv(file_name)
     df = convert_dates_to_months(df)
     df = get_monthly_counts_by_district(df)
     df = get_monthly_demand_index_by_district(df)
-    print(df)
+    df = sort_df_by_month_demand_index_and_district(df)
+    return df
 
 
 if __name__ == "__main__":
-    main("crimes_small.csv")
+    df = main("crimes_small.csv")
+    print(df)
