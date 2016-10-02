@@ -6,7 +6,7 @@ def read_csv(file_name):
     df = pd.read_csv(file_name)
     df = df[["GO Report Date", 'GO District']]
     df = df.rename(columns={"GO Report Date": "date", "GO District": "district"})
-    df['count'] = 1
+    df['count'] = 1.0
     return df
 
 
@@ -32,7 +32,16 @@ def convert_dates_to_months(df):
 
 
 def get_monthly_counts_by_district(df):
-    df = df.groupby(['month_number', 'district'], as_index=False)['count'].sum()
+    df = df.groupby(['month', 'district'], as_index=False)['count'].sum()
+    return df
+
+
+def get_monthly_demand_index_by_district(df):
+    monthly_counts = df.groupby('month', as_index=False)['count'].sum()
+    monthly_counts = monthly_counts.rename(columns=dict(count='monthly_count'))
+    df = df.merge(monthly_counts, on='month')
+    df['demand_index'] = df['count'] / df['monthly_count']
+    df = df.drop(['count', 'monthly_count'], axis=1)
     return df
 
 
@@ -40,6 +49,7 @@ def main(file_name):
     df = read_csv(file_name)
     df = convert_dates_to_months(df)
     df = get_monthly_counts_by_district(df)
+    df = get_monthly_demand_index_by_district(df)
     print(df)
 
 
