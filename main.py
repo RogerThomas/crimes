@@ -64,3 +64,4 @@ def main(file_name):
 if __name__ == "__main__":
     df = main("crimes.csv")
     df.to_csv('results.csv', index=False)
+    print(df)
